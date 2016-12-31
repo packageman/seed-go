@@ -1,0 +1,20 @@
+{
+	"ImportPath": "github.com/packageman/seed",
+	"GoVersion": "go1.7",
+	"GodepVersion": "v75",
+	"Deps": [
+		{
+			"ImportPath": "github.com/moul/http2curl",
+			"Rev": "4e24498b31dba4683efb9d35c1c8a91e2eda28c8"
+		},
+		{
+			"ImportPath": "github.com/parnurzeal/gorequest",
+			"Comment": "v0.2.14-24-gbdd24ac",
+			"Rev": "bdd24ac7ec2b0b2126f4782dd031644cbea1d223"
+		},
+		{
+			"ImportPath": "golang.org/x/net/publicsuffix",
+			"Rev": "8fd7f25955530b92e73e9e1932a41b522b22ccd9"
+		}
+	]
+}
