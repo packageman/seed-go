@@ -2,10 +2,12 @@
 	"ImportPath": "github.com/packageman/seed",
 	"GoVersion": "go1.7",
 	"GodepVersion": "v75",
-	"Packages": [
-		"./..."
-	],
 	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.11.0-27-g9b48ece",
+			"Rev": "9b48ece7fc373043054858f8c0d362665e866004"
+		},
 		{
 			"ImportPath": "github.com/moul/http2curl",
 			"Rev": "4e24498b31dba4683efb9d35c1c8a91e2eda28c8"
@@ -16,8 +18,16 @@
 			"Rev": "bdd24ac7ec2b0b2126f4782dd031644cbea1d223"
 		},
 		{
+			"ImportPath": "github.com/spf13/pflag",
+			"Rev": "25f8b5b07aece3207895bf19f7ab517eb3b22a40"
+		},
+		{
 			"ImportPath": "golang.org/x/net/publicsuffix",
 			"Rev": "8fd7f25955530b92e73e9e1932a41b522b22ccd9"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "d75a52659825e75fff6158388dddc6a5b04f9ba5"
 		}
 	]
 }

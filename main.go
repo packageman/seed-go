@@ -1,37 +1,37 @@
 package main
 
 import (
-	"fmt"
-	"encoding/json"
-	"github.com/packageman/seed/helpers"
-	"github.com/packageman/seed/extensions"
-	"github.com/packageman/seed/models"
+	"log"
+	goflag "flag"
+
+	flag "github.com/spf13/pflag"
+	
+	"github.com/packageman/seed/demo"
+)
+
+const (
+	MODE_HELLO = 1
+    MODE_REQUEST = 2
+    MODE_LOG = 3
+)
+
+var (
+	env = flag.StringP("env", "e", "dev", "The running environment")
+	mode = flag.IntP("mode", "m", 1, "Mode to run")
 )
 
 func main() {
-	fmt.Printf(helpers.Reverse("\n!oG, olleH"))
+	flag.CommandLine.AddGoFlagSet(goflag.CommandLine)
+    flag.Parse()
 
-	_, body, errs := extensions.NewRestClient().Get("https://jsonplaceholder.typicode.com/users").End()
-	if (errs != nil) {
-	    fmt.Println(errs)
-	}
+    log.Printf("mode type: %T, address: %p, value: %d", mode, mode, *mode)
 
-	var users []models.User
-	err := json.Unmarshal([]byte(body), &users)
-    if (err != nil) {
-    	fmt.Println(err)
+    switch *mode {
+    case MODE_HELLO:
+        demo.MakeHello()
+    case MODE_REQUEST:
+        demo.MakeRequest()
+    case MODE_LOG:
+        demo.MakeLog()
     }
-
-    fmt.Printf("users' type: %T\nusers' length: %d\n", users, len(users))
-
-    user := users[0];
-    fmt.Printf("Company's type: %T\n", user.Company)
-	
-	for _, user := range users {
-		fmt.Printf("%d\n%s\n%s\n%s\n==========\n", 
-			user.Id, 
-			user.Name, 
-			user.Email, 
-			user.Company.(map[string]interface{})["name"])
-	}
 }
