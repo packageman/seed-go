@@ -1,8 +1,8 @@
 package tests
 
 import (
-	"testing"
 	"github.com/packageman/seed/helpers"
+	"testing"
 )
 
 func TestReverse(t *testing.T) {

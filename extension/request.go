@@ -5,5 +5,5 @@ import (
 )
 
 func NewRestClient() *request.SuperAgent {
-    return request.New()
+	return request.New()
 }

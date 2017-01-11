@@ -1,8 +1,8 @@
 package demo
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 
 	"github.com/packageman/seed/extension"
 	"github.com/packageman/seed/model"
@@ -10,26 +10,26 @@ import (
 
 func MakeRequest() {
 	_, body, errs := extension.NewRestClient().Get("https://jsonplaceholder.typicode.com/users").End()
-	if (errs != nil) {
-	    fmt.Println(errs)
+	if errs != nil {
+		fmt.Println(errs)
 	}
 
 	var users []model.User
 	err := json.Unmarshal([]byte(body), &users)
-	if (err != nil) {
+	if err != nil {
 		fmt.Println(err)
 	}
 
 	fmt.Printf("users' type: %T\nusers' length: %d\n", users, len(users))
 
-	user := users[0];
+	user := users[0]
 	fmt.Printf("Company's type: %T\n", user.Company)
 
 	for _, user := range users {
-		fmt.Printf("%d\n%s\n%s\n%s\n==========\n", 
-			user.Id, 
-			user.Name, 
-			user.Email, 
+		fmt.Printf("%d\n%s\n%s\n%s\n==========\n",
+			user.Id,
+			user.Name,
+			user.Email,
 			user.Company.(map[string]interface{})["name"])
-	}	
+	}
 }

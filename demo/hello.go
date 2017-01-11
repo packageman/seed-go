@@ -2,7 +2,7 @@ package demo
 
 import (
 	"fmt"
-    "github.com/packageman/seed/helper"
+	"github.com/packageman/seed/helper"
 )
 
 func MakeHello() {

@@ -1,8 +1,8 @@
 package demo
 
 import (
+	log "github.com/Sirupsen/logrus"
 	"os"
-    log "github.com/Sirupsen/logrus"
 )
 
 func MakeLog() {
@@ -16,8 +16,8 @@ func MakeLog() {
 	log.Warnln("I'm a warning log ...")
 
 	log.WithFields(log.Fields{
-	    "animal": "walrus",
-	    "size":   10,
+		"animal": "walrus",
+		"size":   10,
 	}).Info("A group of walrus emerges from the ocean")
 
 	var logForError = log.New()
@@ -26,6 +26,6 @@ func MakeLog() {
 
 	// Calls panic() after logging
 	log.Panicln("I'm a panic log ...")
-	// Calls os.Exit(1) after logging                              
+	// Calls os.Exit(1) after logging
 	log.Fatalln("I'm a fatal log ...")
 }
