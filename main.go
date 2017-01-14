@@ -13,6 +13,7 @@ const (
 	MODE_HELLO   = 1
 	MODE_REQUEST = 2
 	MODE_LOG     = 3
+	MODE_REST    = 4
 )
 
 var (
@@ -33,5 +34,7 @@ func main() {
 		demo.MakeRequest()
 	case MODE_LOG:
 		demo.MakeLog()
+	case MODE_REST:
+		demo.MakeRest()
 	}
 }
